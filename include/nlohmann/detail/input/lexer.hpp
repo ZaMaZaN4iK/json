@@ -1204,16 +1204,7 @@ scan_number_done:
     {
         if (get() == 0xEF)
         {
-            if (get() == 0xBB and get() == 0xBF)
-            {
-                // we completely parsed the BOM
-                return true;
-            }
-            else
-            {
-                // after reading 0xEF, an unexpected character followed
-                return false;
-            }
+            return get() == 0xBB and get() == 0xBF;
         }
         else
         {
